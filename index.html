@@ -2,7 +2,8 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <link rel="icon" type="image/jpeg" href="/src/assets/img/profile.jpg" />
+    <link rel="apple-touch-icon" href="/src/assets/img/profile.jpg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
@@ -49,14 +50,6 @@
     <!-- Google Site Verification for indexing -->
     <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
     
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Materialize CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css">
-    <!-- Material Design Icons -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -67,41 +60,5 @@
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     
-    <!-- jQuery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    
-    <!-- Typed.js -->
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    
-    <!-- Materialize JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
-    
-    <!-- Initialize Materialize components and Typed.js -->
-    <script>
-      $(document).ready(function () {
-        $(".scrollspy").scrollSpy();
-        // Initialize collapse button
-        $(".button-collapse").sideNav({
-          menuWidth: 190, // Default is 240
-          edge: "left", // Choose the horizontal origin
-          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
-        });
-        
-        // Initialize Typed.js with a delay to ensure DOM is ready
-        setTimeout(function() {
-          if (document.querySelector('.typing')) {
-            var typed = new Typed('.typing', {
-              strings: ["Full Stack Developer", "React Developer", "Node.js Developer", "TypeScript Developer"],
-              loop: true,
-              typeSpeed: 80,
-              backSpeed: 40
-            });
-          }
-        }, 1000);
-        
-        // Initialize tooltips
-        $('.tooltipped').tooltip();
-      });
-    </script>
   </body>
 </html>

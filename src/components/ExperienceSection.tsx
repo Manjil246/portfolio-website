@@ -47,7 +47,7 @@ const ExperienceSection: React.FC = () => {
       duration: "2025",
       location: "Remote",
       logo: "src/assets/img/DPN_LOGO_mrvh8l.png",
-      website: "https://skylinkitservices.com/",
+      website: "https://skylinkitservices.com.np/",
       description: [
         "Developed production business website with admin dashboard using React (TypeScript), Node.js, Express, and MongoDB with complete MVC architecture.",
         "Implemented secure authentication system with JWT, comprehensive schema validation using JOI, and configured high-availability deployment via Cloudflare and Vercel.",

@@ -11,11 +11,11 @@ const Navigation: React.FC = () => {
           <div className="flex items-center justify-between h-16">
             {/* Logo/Name */}
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 rounded-full overflow-hidden border border-matrix-green/50">
+              <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-matrix-green/50 hover:border-matrix-green transition-all duration-300 hover:shadow-neon">
                 <img
                   src="/src/assets/img/profile.jpg"
                   alt="Manjil Dhungana"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                 />
               </div>
               <div>
