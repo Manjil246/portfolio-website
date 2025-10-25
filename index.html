@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-PGZH8HT');</script>
+    <!-- End Google Tag Manager -->
+
+    <title>Manjil Dhungana | Full Stack Developer</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-126939217-2"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'UA-126939217-2');
+    </script>
+
+    <!-- Open Graph-->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Manjil Dhungana | Full Stack Developer" />
+    <meta property="og:description" content="Full Stack Developer skilled in React, Node.js, TypeScript, and AWS" />
+    <meta property="og:url" content="https://manjildhungana.github.io/" />
+    <meta property="og:site_name" content="Manjil Dhungana | Full Stack Developer" />
+    <meta property="article:publisher" content="https://manjildhungana.github.io/" />
+    <meta property="og:image" content="https://manjildhungana.github.io/examples/preview.JPG" />
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@manjildhungana" />
+    <meta name="twitter:title" content="Full Stack Developer | React | Node.js | TypeScript | AWS" />
+    <meta name="twitter:description" content="Full Stack Developer skilled in React, Node.js, TypeScript, and AWS" />
+    <meta name="twitter:url" content="https://twitter.com/manjildhungana" />
+    
+    <meta name="author" content="Manjil Dhungana" />
+    <meta name="description" content="Full Stack Developer skilled in React, Node.js, TypeScript, and AWS. Building scalable, high-performance web applications." />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Google Site Verification for indexing -->
+    <meta name="google-site-verification" content="_qxK8tePiU2fhnwlwnJ7pkDFnj1k2EiKq_cYGy1Cb84" />
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/css/materialize.min.css">
+    <!-- Material Design Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PGZH8HT"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript>
+    
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+    
+    <!-- Initialize Materialize components and Typed.js -->
+    <script>
+      $(document).ready(function () {
+        $(".scrollspy").scrollSpy();
+        // Initialize collapse button
+        $(".button-collapse").sideNav({
+          menuWidth: 190, // Default is 240
+          edge: "left", // Choose the horizontal origin
+          closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
+        });
+        
+        // Initialize Typed.js with a delay to ensure DOM is ready
+        setTimeout(function() {
+          if (document.querySelector('.typing')) {
+            var typed = new Typed('.typing', {
+              strings: ["Full Stack Developer", "React Developer", "Node.js Developer", "TypeScript Developer"],
+              loop: true,
+              typeSpeed: 80,
+              backSpeed: 40
+            });
+          }
+        }, 1000);
+        
+        // Initialize tooltips
+        $('.tooltipped').tooltip();
+      });
+    </script>
+  </body>
+</html>
