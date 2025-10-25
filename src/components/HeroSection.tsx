@@ -17,6 +17,7 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     let timeout: number;
+    
     if (isTyping && currentText.length < fullText.length) {
       timeout = setTimeout(() => {
         setCurrentText(fullText.slice(0, currentText.length + 1));
