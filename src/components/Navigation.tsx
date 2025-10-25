@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { FileText } from "lucide-react";
+import profileImg from "../assets/img/profile.jpg";
 
 const Navigation: React.FC = () => {
   return (
@@ -13,7 +14,7 @@ const Navigation: React.FC = () => {
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-matrix-green/50 hover:border-matrix-green transition-all duration-300 hover:shadow-neon">
                 <img
-                  src="/src/assets/img/profile.jpg"
+                  src={profileImg}
                   alt="Manjil Dhungana"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                 />

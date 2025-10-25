@@ -10,6 +10,8 @@ import {
   Code2,
   Terminal,
 } from "lucide-react";
+import kreedalabsLogo from "../assets/img/kreedalabs_logo.jpg";
+import dpnLogo from "../assets/img/DPN_LOGO_mrvh8l.png";
 
 interface Experience {
   company: string;
@@ -29,7 +31,7 @@ const ExperienceSection: React.FC = () => {
       position: "Full Stack Developer",
       duration: "Sep 2024 – Present",
       location: "Pune, Maharashtra",
-      logo: "src/assets/img/kreedalabs_logo.jpg",
+      logo: kreedalabsLogo,
       website: "https://kreedalabs.com/",
       description: [
         "Built Fashion Trend Forecasting Platform using full-stack TypeScript with MVC architecture, processing 1M+ fashion posts to identify top trends with 85% accuracy.",
@@ -46,7 +48,7 @@ const ExperienceSection: React.FC = () => {
       position: "Full Stack Developer (Freelancing)",
       duration: "2025",
       location: "Remote",
-      logo: "src/assets/img/DPN_LOGO_mrvh8l.png",
+      logo: dpnLogo,
       website: "https://skylinkitservices.com.np/",
       description: [
         "Developed production business website with admin dashboard using React (TypeScript), Node.js, Express, and MongoDB with complete MVC architecture.",
