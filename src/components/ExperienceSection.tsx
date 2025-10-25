@@ -2,7 +2,14 @@ import React from "react";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "./ui/button";
-import { Calendar, MapPin, ExternalLink, Building2, Code2 } from "lucide-react";
+import {
+  Calendar,
+  MapPin,
+  ExternalLink,
+  Building2,
+  Code2,
+  Terminal,
+} from "lucide-react";
 
 interface Experience {
   company: string;
@@ -52,17 +59,36 @@ const ExperienceSection: React.FC = () => {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section
+      id="experience"
+      className="py-20 bg-dark-bg relative overflow-hidden"
+    >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid grid-cols-10 grid-rows-10 h-full w-full">
+          {Array.from({ length: 100 }).map((_, i) => (
+            <div
+              key={i}
+              className="border border-terminal-border/20 hover:border-matrix-green/30 transition-colors duration-300"
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Work Experience
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <Building2 className="w-8 h-8 text-matrix-green" />
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-mono">
+              Work Experience
+            </h2>
+            <Building2 className="w-8 h-8 text-matrix-green" />
+          </div>
+          <p className="text-xl text-gray-400 max-w-2xl mx-auto font-mono">
             My professional journey and the projects I've worked on
           </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mt-6"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-matrix-green to-blue-400 mx-auto rounded-full mt-6"></div>
         </div>
 
         <div className="max-w-6xl mx-auto">
@@ -70,14 +96,14 @@ const ExperienceSection: React.FC = () => {
             {experiences.map((exp, index) => (
               <Card
                 key={index}
-                className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:scale-[1.02]"
+                className="group hover:shadow-neon-lg transition-all duration-300 border-terminal-border bg-dark-card hover:border-matrix-green/50 hover:scale-[1.02]"
               >
                 <CardContent className="p-8">
                   <div className="flex flex-col lg:flex-row gap-8">
                     {/* Company Logo */}
                     <div className="flex-shrink-0 flex justify-center lg:justify-start">
                       {exp.logo ? (
-                        <div className="w-24 h-24 rounded-xl overflow-hidden shadow-lg group-hover:shadow-xl transition-shadow duration-300">
+                        <div className="w-24 h-24 rounded-xl overflow-hidden shadow-neon group-hover:shadow-neon-lg transition-shadow duration-300 border border-terminal-border">
                           <img
                             alt={`${exp.company} logo`}
                             src={exp.logo}
@@ -85,8 +111,8 @@ const ExperienceSection: React.FC = () => {
                           />
                         </div>
                       ) : (
-                        <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-xl transition-shadow duration-300">
-                          <Building2 className="w-12 h-12 text-white" />
+                        <div className="w-24 h-24 bg-gradient-to-br from-matrix-green to-blue-400 rounded-xl flex items-center justify-center shadow-neon group-hover:shadow-neon-lg transition-shadow duration-300">
+                          <Building2 className="w-12 h-12 text-black" />
                         </div>
                       )}
                     </div>
@@ -96,7 +122,7 @@ const ExperienceSection: React.FC = () => {
                       {/* Header */}
                       <div className="mb-6">
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                          <h3 className="text-2xl font-bold text-gray-900">
+                          <h3 className="text-2xl font-bold text-white font-mono">
                             {exp.position}
                           </h3>
                           {exp.website && (
@@ -104,7 +130,7 @@ const ExperienceSection: React.FC = () => {
                               asChild
                               variant="outline"
                               size="sm"
-                              className="border-blue-300 text-blue-600 hover:bg-blue-50"
+                              className="border-matrix-green text-matrix-green hover:bg-matrix-green hover:text-black font-mono"
                             >
                               <a
                                 href={exp.website}
@@ -119,22 +145,24 @@ const ExperienceSection: React.FC = () => {
                           )}
                         </div>
 
-                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-600">
+                        <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-400">
                           <div className="flex items-center space-x-2">
                             <Calendar className="w-4 h-4" />
-                            <span className="font-medium">{exp.duration}</span>
+                            <span className="font-medium font-mono">
+                              {exp.duration}
+                            </span>
                           </div>
                           <div className="flex items-center space-x-2">
                             <MapPin className="w-4 h-4" />
-                            <span>{exp.location}</span>
+                            <span className="font-mono">{exp.location}</span>
                           </div>
                         </div>
                       </div>
 
                       {/* Description */}
                       <div className="mb-6">
-                        <h4 className="text-lg font-semibold text-gray-800 mb-4 flex items-center space-x-2">
-                          <Code2 className="w-5 h-5" />
+                        <h4 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2 font-mono">
+                          <Code2 className="w-5 h-5 text-matrix-green" />
                           <span>Key Achievements</span>
                         </h4>
                         <ul className="space-y-3">
@@ -143,8 +171,8 @@ const ExperienceSection: React.FC = () => {
                               key={descIndex}
                               className="flex items-start space-x-3"
                             >
-                              <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                              <p className="text-gray-700 leading-relaxed">
+                              <div className="w-2 h-2 bg-matrix-green rounded-full mt-2 flex-shrink-0"></div>
+                              <p className="text-gray-300 leading-relaxed">
                                 {desc}
                               </p>
                             </li>
@@ -154,7 +182,7 @@ const ExperienceSection: React.FC = () => {
 
                       {/* Tools */}
                       <div>
-                        <h4 className="text-lg font-semibold text-gray-800 mb-3">
+                        <h4 className="text-lg font-semibold text-white mb-3 font-mono">
                           Technologies Used
                         </h4>
                         <div className="flex flex-wrap gap-2">
@@ -162,7 +190,7 @@ const ExperienceSection: React.FC = () => {
                             <Badge
                               key={toolIndex}
                               variant="secondary"
-                              className="bg-blue-50 text-blue-700 hover:bg-blue-100 transition-colors duration-200"
+                              className="bg-matrix-green/20 text-matrix-green hover:bg-matrix-green/30 transition-colors duration-200 font-mono border border-matrix-green/30"
                             >
                               {tool}
                             </Badge>
@@ -177,12 +205,18 @@ const ExperienceSection: React.FC = () => {
           </div>
 
           {/* Call to Action */}
-          <Card className="mt-12 shadow-xl border-0 bg-gradient-to-r from-green-600 to-emerald-600 text-white">
+          <Card className="mt-12 shadow-neon-lg border-terminal-border bg-gradient-to-r from-matrix-green/20 to-blue-400/20">
             <CardContent className="p-8 md:p-12 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              <div className="flex items-center justify-center space-x-2 mb-4">
+                <Terminal className="w-6 h-6 text-matrix-green" />
+                <span className="text-matrix-green font-mono text-sm">
+                  experience.summary
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white font-mono">
                 Ready to Bring Value to Your Team
               </h3>
-              <p className="text-lg md:text-xl text-green-100 leading-relaxed max-w-3xl mx-auto mb-6">
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-6">
                 With proven experience in building scalable applications and
                 solving complex technical challenges, I'm ready to contribute to
                 your next project.
@@ -190,7 +224,7 @@ const ExperienceSection: React.FC = () => {
               <Button
                 asChild
                 size="lg"
-                className="bg-white text-green-600 hover:bg-green-50 px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-matrix-green hover:bg-matrix-green/80 text-black px-8 py-3 rounded-lg font-semibold shadow-neon hover:shadow-neon-lg transition-all duration-300 font-mono"
               >
                 <a href="#contact">Let's Work Together</a>
               </Button>

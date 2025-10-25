@@ -1,138 +1,165 @@
 import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Button } from "./ui/button";
-import { Phone, Mail, Github, Linkedin, MapPin } from "lucide-react";
+import { Card, CardContent } from "./ui/card";
+import { MapPin, Phone, Mail, Github, Linkedin, Terminal } from "lucide-react";
 
 const ContactSection: React.FC = () => {
-  const contactInfo = [
-    {
-      icon: Phone,
-      label: "Phone",
-      value: "+91 6362428010",
-      href: "tel:+916362428010",
-      color: "text-blue-600",
-      bgColor: "bg-blue-50",
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      value: "manjildhungana8@gmail.com",
-      href: "mailto:manjildhungana8@gmail.com",
-      color: "text-green-600",
-      bgColor: "bg-green-50",
-    },
-    {
-      icon: Github,
-      label: "GitHub",
-      value: "github.com/Manjil246",
-      href: "https://github.com/Manjil246",
-      color: "text-gray-800",
-      bgColor: "bg-gray-50",
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      value: "linkedin.com/in/manjildhungana",
-      href: "https://www.linkedin.com/in/manjildhungana/",
-      color: "text-blue-700",
-      bgColor: "bg-blue-50",
-    },
-  ];
-
   return (
-    <section
-      id="contact"
-      className="py-20 bg-gradient-to-br from-slate-50 to-blue-50"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-20 bg-dark-bg relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid grid-cols-6 grid-rows-6 h-full w-full">
+          {Array.from({ length: 36 }).map((_, i) => (
+            <div
+              key={i}
+              className="border border-terminal-border/20 hover:border-matrix-green/30 transition-colors duration-300"
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Get In Touch
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            I'm always open to discussing new opportunities and interesting
-            projects. Let's connect and build something amazing together!
-          </p>
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <Mail className="w-8 h-8 text-matrix-green" />
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-mono">
+              Get In Touch
+            </h2>
+            <Mail className="w-8 h-8 text-matrix-green" />
+          </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-matrix-green to-blue-400 mx-auto rounded-full"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
-          <Card className="shadow-xl border-0 bg-white/80 backdrop-blur-sm">
-            <CardHeader className="text-center pb-8">
-              <CardTitle className="text-2xl font-semibold text-gray-800">
-                Contact Information
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {contactInfo.map((item, index) => {
-                  const IconComponent = item.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="group p-6 rounded-xl border border-gray-200 hover:border-gray-300 transition-all duration-300 hover:shadow-lg bg-white/50"
-                    >
-                      <div className="flex items-start space-x-4">
-                        <div
-                          className={`p-3 rounded-lg ${item.bgColor} group-hover:scale-110 transition-transform duration-300`}
-                        >
-                          <IconComponent className={`w-6 h-6 ${item.color}`} />
-                        </div>
-                        <div className="flex-1 min-w-0">
-                          <p className="text-sm font-medium text-gray-500 uppercase tracking-wide mb-1">
-                            {item.label}
-                          </p>
-                          <a
-                            href={item.href}
-                            target={
-                              item.href.startsWith("http")
-                                ? "_blank"
-                                : undefined
-                            }
-                            rel={
-                              item.href.startsWith("http")
-                                ? "noopener noreferrer"
-                                : undefined
-                            }
-                            className="text-lg font-semibold text-gray-900 hover:text-blue-600 transition-colors duration-200 break-all"
-                          >
-                            {item.value}
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* Phone */}
+          <Card className="bg-dark-card border-terminal-border shadow-neon hover:shadow-neon-lg transition-all duration-300 hover:-translate-y-1 hover:border-matrix-green/50">
+            <CardContent className="flex flex-col items-center p-6">
+              <div className="bg-blue-400/20 text-blue-400 rounded-full p-4 mb-4 transition-all duration-300 hover:scale-110">
+                <Phone size={28} />
               </div>
+              <h3 className="text-lg font-semibold text-white mb-2 font-mono">
+                Phone
+              </h3>
+              <a
+                href="tel:+916362428010"
+                className="text-gray-300 hover:text-blue-400 transition-colors duration-200 font-mono"
+              >
+                +91 6362428010
+              </a>
+            </CardContent>
+          </Card>
 
-              <div className="mt-12 text-center">
-                <div className="inline-flex items-center space-x-2 text-gray-600 mb-6">
-                  <MapPin className="w-5 h-5" />
-                  <span className="font-medium">
-                    Based in Pune, Maharashtra, India
-                  </span>
-                </div>
-
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                  <Button
-                    asChild
-                    size="lg"
-                    className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-semibold shadow-lg hover:shadow-xl transition-all duration-300"
-                  >
-                    <a href="mailto:manjildhungana8@gmail.com">Send Email</a>
-                  </Button>
-                  <Button
-                    asChild
-                    variant="outline"
-                    size="lg"
-                    className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-full font-semibold transition-all duration-300"
-                  >
-                    <a href="tel:+916362428010">Call Now</a>
-                  </Button>
-                </div>
+          {/* Email */}
+          <Card className="bg-dark-card border-terminal-border shadow-neon hover:shadow-neon-lg transition-all duration-300 hover:-translate-y-1 hover:border-matrix-green/50">
+            <CardContent className="flex flex-col items-center p-6">
+              <div className="bg-matrix-green/20 text-matrix-green rounded-full p-4 mb-4 transition-all duration-300 hover:scale-110">
+                <Mail size={28} />
               </div>
+              <h3 className="text-lg font-semibold text-white mb-2 font-mono">
+                Email
+              </h3>
+              <a
+                href="mailto:manjildhungana8@gmail.com"
+                className="text-gray-300 hover:text-matrix-green transition-colors duration-200 break-all font-mono"
+              >
+                manjildhungana8@gmail.com
+              </a>
+            </CardContent>
+          </Card>
+
+          {/* GitHub */}
+          <Card className="bg-dark-card border-terminal-border shadow-neon hover:shadow-neon-lg transition-all duration-300 hover:-translate-y-1 hover:border-matrix-green/50">
+            <CardContent className="flex flex-col items-center p-6">
+              <div className="bg-gray-400/20 text-gray-400 rounded-full p-4 mb-4 transition-all duration-300 hover:scale-110">
+                <Github size={28} />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2 font-mono">
+                GitHub
+              </h3>
+              <a
+                href="https://github.com/Manjil246"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-gray-100 transition-colors duration-200 font-mono"
+              >
+                github.com/Manjil246
+              </a>
+            </CardContent>
+          </Card>
+
+          {/* LinkedIn */}
+          <Card className="bg-dark-card border-terminal-border shadow-neon hover:shadow-neon-lg transition-all duration-300 hover:-translate-y-1 hover:border-matrix-green/50">
+            <CardContent className="flex flex-col items-center p-6">
+              <div className="bg-blue-600/20 text-blue-600 rounded-full p-4 mb-4 transition-all duration-300 hover:scale-110">
+                <Linkedin size={28} />
+              </div>
+              <h3 className="text-lg font-semibold text-white mb-2 font-mono">
+                LinkedIn
+              </h3>
+              <a
+                href="https://www.linkedin.com/in/manjildhungana/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-300 hover:text-blue-600 transition-colors duration-200 font-mono"
+              >
+                linkedin.com/in/manjildhungana
+              </a>
             </CardContent>
           </Card>
         </div>
+
+        {/* Call to Action Buttons */}
+        <div className="flex flex-col sm:flex-row justify-center gap-4 mt-12">
+          <Button
+            asChild
+            className="bg-matrix-green hover:bg-matrix-green/80 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-neon hover:shadow-neon-lg font-mono"
+          >
+            <a href="mailto:manjildhungana8@gmail.com">Send Email</a>
+          </Button>
+          <Button
+            asChild
+            variant="outline"
+            className="border-matrix-green text-matrix-green hover:bg-matrix-green hover:text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-neon hover:shadow-neon-lg font-mono"
+          >
+            <a href="tel:+916362428010">Call Now</a>
+          </Button>
+        </div>
+
+        {/* Location */}
+        <div className="text-center text-gray-400 mt-12 flex items-center justify-center font-mono">
+          <MapPin size={20} className="mr-2 text-matrix-green" />
+          Pune, Maharashtra, India
+        </div>
+
+        {/* Terminal Footer */}
+        <Card className="mt-16 shadow-neon-lg border-terminal-border bg-terminal">
+          <CardContent className="p-8 text-center">
+            <div className="flex items-center justify-center space-x-2 mb-4">
+              <Terminal className="w-6 h-6 text-matrix-green" />
+              <span className="text-matrix-green font-mono text-sm">
+                contact.status
+              </span>
+            </div>
+            <div className="space-y-2 font-mono text-sm">
+              <div className="text-matrix-green">
+                <span className="text-blue-400">$</span> echo "Ready for new
+                opportunities"
+              </div>
+              <div className="text-white">Ready for new opportunities</div>
+              <div className="text-matrix-green">
+                <span className="text-blue-400">$</span> status --available
+              </div>
+              <div className="text-white">
+                Available for freelance projects and full-time positions
+              </div>
+              <div className="text-matrix-green">
+                <span className="text-blue-400">$</span>{" "}
+                <span className="animate-blink border-r-2 border-matrix-green ml-1"></span>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

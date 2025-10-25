@@ -1,10 +1,20 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Badge } from "@/components/ui/badge";
+import {
+  Code2,
+  Monitor,
+  Server,
+  Database,
+  Settings,
+  Terminal,
+} from "lucide-react";
 
 interface SkillCategory {
   title: string;
   skills: Skill[];
+  icon: any;
+  color: string;
 }
 
 interface Skill {
@@ -21,6 +31,8 @@ const SkillsSection: React.FC = () => {
         { name: "JavaScript", image: "/src/assets/img/javascript.png" },
         { name: "TypeScript", image: "/src/assets/img/typescript-logo.png" },
       ],
+      icon: Code2,
+      color: "text-matrix-green",
     },
     {
       title: "Frontend Technologies",
@@ -32,6 +44,8 @@ const SkillsSection: React.FC = () => {
         { name: "Bootstrap", image: "/src/assets/img/bootstrap.png" },
         { name: "Tailwind", image: "/src/assets/img/tailwind-logo.png" },
       ],
+      icon: Monitor,
+      color: "text-blue-400",
     },
     {
       title: "Backend Technologies",
@@ -40,6 +54,8 @@ const SkillsSection: React.FC = () => {
         { name: "Express", image: "/src/assets/img/express-logo.png" },
         { name: "REST APIs", image: "/src/assets/img/api-logo.png" },
       ],
+      icon: Server,
+      color: "text-purple-400",
     },
     {
       title: "Databases",
@@ -48,6 +64,8 @@ const SkillsSection: React.FC = () => {
         { name: "MongoDB", image: "/src/assets/img/mongodb-logo.png" },
         { name: "PostgreSQL", image: "/src/assets/img/postgresql-logo.png" },
       ],
+      icon: Database,
+      color: "text-orange-400",
     },
     {
       title: "State Management",
@@ -56,6 +74,8 @@ const SkillsSection: React.FC = () => {
         { name: "Context API", image: "/src/assets/img/context-api-logo.png" },
         { name: "Zustand", image: "/src/assets/img/zustand-logo.png" },
       ],
+      icon: Settings,
+      color: "text-pink-400",
     },
     {
       title: "Tools & Technologies",
@@ -65,104 +85,132 @@ const SkillsSection: React.FC = () => {
         { name: "Docker", image: "/src/assets/img/docker-logo.png" },
         { name: "AWS", image: "/src/assets/img/aws.png" },
       ],
+      icon: Terminal,
+      color: "text-cyan-400",
     },
   ];
 
   return (
-    <section
-      id="skills"
-      className="py-20 bg-gradient-to-br from-gray-50 to-blue-50"
-    >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="skills" className="py-20 bg-code-bg relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
+          {Array.from({ length: 144 }).map((_, i) => (
+            <div
+              key={i}
+              className="border border-terminal-border/20 hover:border-matrix-green/30 transition-colors duration-300"
+            />
+          ))}
+        </div>
+      </div>
+
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Technical Skills
-          </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            A comprehensive overview of the technologies and tools I work with
-          </p>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 mx-auto rounded-full mt-6"></div>
+          <div className="flex items-center justify-center space-x-3 mb-4">
+            <Code2 className="w-8 h-8 text-matrix-green" />
+            <h2 className="text-4xl md:text-5xl font-bold text-white font-mono">
+              Technical Skills
+            </h2>
+            <Code2 className="w-8 h-8 text-matrix-green" />
+          </div>
+          <div className="w-24 h-1 bg-gradient-to-r from-matrix-green to-blue-400 mx-auto rounded-full"></div>
         </div>
 
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {skillCategories.map((category, categoryIndex) => (
-              <Card
-                key={categoryIndex}
-                className="group hover:shadow-xl transition-all duration-300 border-0 bg-white/80 backdrop-blur-sm hover:scale-105"
-              >
-                <CardHeader className="pb-6">
-                  <CardTitle className="text-xl font-semibold text-gray-800 text-center">
-                    {category.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    {category.skills.map((skill, skillIndex) => (
-                      <div
-                        key={skillIndex}
-                        className="group/skill flex flex-col items-center p-4 rounded-xl hover:bg-gray-50 transition-all duration-300 hover:scale-105"
-                      >
-                        <div className="w-16 h-16 mb-3 flex items-center justify-center bg-white rounded-lg shadow-md group-hover/skill:shadow-lg transition-shadow duration-300">
-                          <img
-                            alt={skill.name}
-                            src={skill.image}
-                            className="w-10 h-10 object-contain"
-                          />
-                        </div>
-                        <span className="text-sm font-medium text-gray-700 text-center">
-                          {skill.name}
-                        </span>
+          {/* Skills Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {skillCategories.map((category, index) => {
+              const IconComponent = category.icon;
+              return (
+                <Card
+                  key={index}
+                  className="group hover:shadow-neon transition-all duration-300 border-terminal-border bg-dark-card hover:border-matrix-green/50 hover:scale-105"
+                >
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center space-x-3">
+                      <div className="p-3 rounded-lg bg-matrix-green/10 group-hover:scale-110 transition-transform duration-300">
+                        <IconComponent
+                          className={`w-6 h-6 ${category.color}`}
+                        />
                       </div>
-                    ))}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+                      <CardTitle className="text-lg font-semibold text-white font-mono">
+                        {category.title}
+                      </CardTitle>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="grid grid-cols-2 gap-3">
+                      {category.skills.map((skill, skillIndex) => (
+                        <div
+                          key={skillIndex}
+                          className="flex items-center space-x-3 p-3 bg-terminal rounded-lg hover:bg-terminal-border transition-colors duration-200 group"
+                        >
+                          <img
+                            src={skill.image}
+                            alt={skill.name}
+                            className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-200"
+                          />
+                          <span className="text-gray-300 text-sm font-mono">
+                            {skill.name}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
 
-          {/* Skills Summary */}
-          <Card className="mt-12 shadow-xl border-0 bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+          {/* Summary Section */}
+          <Card className="shadow-neon-lg border-terminal-border bg-gradient-to-r from-matrix-green/20 to-blue-400/20">
             <CardContent className="p-8 md:p-12 text-center">
-              <h3 className="text-2xl md:text-3xl font-bold mb-4">
+              <div className="flex items-center justify-center space-x-2 mb-4">
+                <Terminal className="w-6 h-6 text-matrix-green" />
+                <span className="text-matrix-green font-mono text-sm">
+                  skills.summary
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-3xl font-bold mb-4 text-white font-mono">
                 Full Stack Expertise
               </h3>
-              <p className="text-lg md:text-xl text-indigo-100 leading-relaxed max-w-3xl mx-auto mb-6">
-                With proficiency across the entire technology stack, I can build
-                complete web applications from database design to user interface
-                implementation.
+              <p className="text-lg md:text-xl text-gray-300 leading-relaxed max-w-3xl mx-auto mb-6">
+                Proficient in modern web technologies with a focus on creating
+                scalable, maintainable, and performant applications. Experienced
+                in both frontend and backend development with a strong
+                understanding of database design and cloud technologies.
               </p>
               <div className="flex flex-wrap justify-center gap-3">
                 <Badge
                   variant="secondary"
-                  className="bg-white/20 text-white hover:bg-white/30 px-4 py-2"
+                  className="bg-matrix-green/20 text-matrix-green hover:bg-matrix-green/30 px-4 py-2 font-mono border border-matrix-green/30"
                 >
-                  Frontend Development
+                  React Ecosystem
                 </Badge>
                 <Badge
                   variant="secondary"
-                  className="bg-white/20 text-white hover:bg-white/30 px-4 py-2"
+                  className="bg-blue-400/20 text-blue-400 hover:bg-blue-400/30 px-4 py-2 font-mono border border-blue-400/30"
                 >
-                  Backend Development
+                  Node.js Backend
                 </Badge>
                 <Badge
                   variant="secondary"
-                  className="bg-white/20 text-white hover:bg-white/30 px-4 py-2"
+                  className="bg-purple-400/20 text-purple-400 hover:bg-purple-400/30 px-4 py-2 font-mono border border-purple-400/30"
                 >
                   Database Design
                 </Badge>
                 <Badge
                   variant="secondary"
-                  className="bg-white/20 text-white hover:bg-white/30 px-4 py-2"
+                  className="bg-orange-400/20 text-orange-400 hover:bg-orange-400/30 px-4 py-2 font-mono border border-orange-400/30"
                 >
-                  Cloud Deployment
+                  Cloud Technologies
                 </Badge>
                 <Badge
                   variant="secondary"
-                  className="bg-white/20 text-white hover:bg-white/30 px-4 py-2"
+                  className="bg-pink-400/20 text-pink-400 hover:bg-pink-400/30 px-4 py-2 font-mono border border-pink-400/30"
                 >
-                  DevOps Practices
+                  DevOps & CI/CD
                 </Badge>
               </div>
             </CardContent>

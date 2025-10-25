@@ -1,119 +1,231 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import {
   Github,
   Linkedin,
   ChevronDown,
-  Download,
   ArrowRight,
+  Terminal,
+  Code2,
+  Zap,
 } from "lucide-react";
 
 const HeroSection: React.FC = () => {
+  const [currentText, setCurrentText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  const fullText = "const developer = new ManjilDhungana();";
+
+  useEffect(() => {
+    let timeout: number;
+    if (isTyping && currentText.length < fullText.length) {
+      timeout = setTimeout(() => {
+        setCurrentText(fullText.slice(0, currentText.length + 1));
+      }, 100);
+    } else if (currentText.length === fullText.length) {
+      timeout = setTimeout(() => {
+        setIsTyping(false);
+      }, 2000);
+    } else if (!isTyping && currentText.length > 0) {
+      timeout = setTimeout(() => {
+        setCurrentText(currentText.slice(0, -1));
+      }, 50);
+    } else {
+      setIsTyping(true);
+    }
+    return () => clearTimeout(timeout);
+  }, [currentText, isTyping, fullText]);
+
   return (
-    <section
-      id="intro"
-      className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 relative overflow-hidden"
-    >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-600/20 to-purple-600/20"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1)_0%,transparent_50%)]"></div>
-
-      {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 h-screen flex items-center">
-        <div className="max-w-4xl mx-auto text-center">
-          {/* Greeting */}
-          <div className="mb-8 animate-fade-in">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white mb-4 leading-tight">
-              Hi, I'm{" "}
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
-                Manjil Dhungana
-              </span>
-            </h1>
-            <div className="text-xl sm:text-2xl lg:text-3xl text-blue-200 mb-6">
-              A{" "}
-              <span className="text-white font-semibold bg-gradient-to-r from-cyan-400 to-blue-400 bg-clip-text text-transparent">
-                Full Stack Developer
-              </span>
+    <section className="min-h-screen bg-dark-bg relative overflow-hidden">
+      {/* Matrix Rain Background */}
+      <div className="absolute inset-0 opacity-20">
+        <div className="matrix-rain">
+          {Array.from({ length: 50 }).map((_, i) => (
+            <div
+              key={i}
+              className="matrix-character"
+              style={{
+                left: `${Math.random() * 100}%`,
+                animationDelay: `${Math.random() * 3}s`,
+                animationDuration: `${3 + Math.random() * 2}s`,
+              }}
+            >
+              {String.fromCharCode(0x30a0 + Math.random() * 96)}
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
 
-          {/* Description */}
-          <div className="mb-12 animate-slide-up">
-            <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Skilled in React, Node.js, TypeScript, and AWS, building scalable,
-              high-performance web applications with a passion for solving
-              complex real-world problems.
-            </p>
-          </div>
+      {/* Terminal Grid Background */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="grid grid-cols-12 grid-rows-12 h-full w-full">
+          {Array.from({ length: 144 }).map((_, i) => (
+            <div
+              key={i}
+              className="border border-terminal-border/20 hover:border-matrix-green/30 transition-colors duration-300"
+            />
+          ))}
+        </div>
+      </div>
 
-          {/* Social Links */}
-          <div className="mb-12 animate-slide-up">
-            <div className="flex justify-center space-x-4">
-              <a
-                href="https://www.linkedin.com/in/manjildhungana/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors duration-300"
-                aria-label="LinkedIn Profile"
-              >
-                <Linkedin size={32} />
-              </a>
-              <a
-                href="https://github.com/Manjil246"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-300 hover:text-white transition-colors duration-300"
-                aria-label="GitHub Profile"
-              >
-                <Github size={32} />
-              </a>
+      {/* Main Content */}
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 min-h-screen flex items-center py-8 sm:py-12 lg:py-20">
+        <div className="max-w-6xl mx-auto w-full">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            {/* Left Side - Code Terminal */}
+            <div className="space-y-6 lg:space-y-8">
+              {/* Terminal Window */}
+              <div className="bg-terminal border border-terminal-border rounded-lg p-4 sm:p-6 shadow-neon-lg">
+                <div className="flex items-center space-x-2 mb-4">
+                  <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                  <span className="text-gray-400 text-sm ml-4 font-mono">
+                    terminal
+                  </span>
+                </div>
+                <div className="space-y-2 font-mono text-sm">
+                  <div className="text-matrix-green">
+                    <span className="text-blue-400">$</span> whoami
+                  </div>
+                  <div className="text-white">manjil-dhungana</div>
+                  <div className="text-matrix-green">
+                    <span className="text-blue-400">$</span> cat about.txt
+                  </div>
+                  <div className="text-white">
+                    Full Stack Developer
+                    <br />
+                    React • Node.js • TypeScript • AWS
+                    <br />
+                    Building scalable web applications
+                  </div>
+                  <div className="text-matrix-green">
+                    <span className="text-blue-400">$</span> {currentText}
+                    <span className="animate-blink border-r-2 border-matrix-green ml-1"></span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Code Stats */}
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                <div className="bg-dark-card border border-terminal-border rounded-lg p-3 sm:p-4 text-center hover:border-matrix-green/50 transition-colors duration-300">
+                  <Code2 className="w-6 h-6 text-matrix-green mx-auto mb-2" />
+                  <div className="text-white font-mono text-lg font-bold">
+                    50+
+                  </div>
+                  <div className="text-gray-400 text-sm">Projects</div>
+                </div>
+                <div className="bg-dark-card border border-terminal-border rounded-lg p-3 sm:p-4 text-center hover:border-matrix-green/50 transition-colors duration-300">
+                  <Terminal className="w-6 h-6 text-matrix-green mx-auto mb-2" />
+                  <div className="text-white font-mono text-lg font-bold">
+                    2+
+                  </div>
+                  <div className="text-gray-400 text-sm">Years</div>
+                </div>
+                <div className="bg-dark-card border border-terminal-border rounded-lg p-3 sm:p-4 text-center hover:border-matrix-green/50 transition-colors duration-300">
+                  <Zap className="w-6 h-6 text-matrix-green mx-auto mb-2" />
+                  <div className="text-white font-mono text-lg font-bold">
+                    24/7
+                  </div>
+                  <div className="text-gray-400 text-sm">Available</div>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-slide-up">
-            <Button
-              asChild
-              className="bg-yellow-400 hover:bg-yellow-500 text-blue-900 font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              <a href="#about" className="flex items-center space-x-2">
-                <span>Read More</span>
-                <ArrowRight className="w-5 h-5" />
-              </a>
-            </Button>
-            <Button
-              asChild
-              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-blue-700 font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl"
-            >
-              <a href="#contact" className="flex items-center space-x-2">
-                <span>Contact Me</span>
-              </a>
-            </Button>
-          </div>
+            {/* Right Side - Main Content */}
+            <div className="space-y-6 lg:space-y-8">
+              {/* Greeting */}
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-matrix-green rounded-full animate-pulse-glow"></div>
+                  <span className="text-matrix-green font-mono text-sm">
+                    ONLINE
+                  </span>
+                </div>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-white leading-tight">
+                  Hi, I'm{" "}
+                  <span className="text-matrix-green neon-text">
+                    Manjil Dhungana
+                  </span>
+                </h1>
+                <div className="text-xl sm:text-2xl text-gray-300 font-mono">
+                  &lt;
+                  <span className="text-matrix-green">
+                    Full Stack Developer
+                  </span>{" "}
+                  /&gt;
+                </div>
+              </div>
 
-          {/* Resume Download */}
-          <div className="mt-8 animate-slide-up">
-            <Button
-              asChild
-              className="bg-transparent border-2 border-blue-300 text-blue-300 hover:bg-blue-300 hover:text-blue-900 px-6 py-3 rounded-full transition-all duration-300"
-            >
-              <a
-                href="/src/assets/resume/Manjil Dhungana.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center space-x-2"
-              >
-                <Download className="w-4 h-4" />
-                <span>Download Resume</span>
-              </a>
-            </Button>
+              {/* Description */}
+              <div className="space-y-4">
+                <p className="text-lg text-gray-300 leading-relaxed">
+                  Crafting digital experiences with{" "}
+                  <span className="text-matrix-green font-mono">React</span>,{" "}
+                  <span className="text-matrix-green font-mono">Node.js</span>,{" "}
+                  <span className="text-matrix-green font-mono">
+                    TypeScript
+                  </span>
+                  , and <span className="text-matrix-green font-mono">AWS</span>
+                  .
+                </p>
+                <p className="text-gray-400">
+                  Building scalable, high-performance applications that solve
+                  real-world problems.
+                </p>
+              </div>
+
+              {/* Social Links */}
+              <div className="flex space-x-4">
+                <a
+                  href="https://www.linkedin.com/in/manjildhungana/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-dark-card border border-terminal-border rounded-lg hover:border-matrix-green/50 hover:shadow-neon transition-all duration-300 group"
+                >
+                  <Linkedin className="w-6 h-6 text-gray-400 group-hover:text-matrix-green transition-colors duration-300" />
+                </a>
+                <a
+                  href="https://github.com/Manjil246"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-dark-card border border-terminal-border rounded-lg hover:border-matrix-green/50 hover:shadow-neon transition-all duration-300 group"
+                >
+                  <Github className="w-6 h-6 text-gray-400 group-hover:text-matrix-green transition-colors duration-300" />
+                </a>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button
+                  asChild
+                  className="bg-matrix-green hover:bg-matrix-green/80 text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 shadow-neon hover:shadow-neon-lg font-mono"
+                >
+                  <a href="#skills" className="flex items-center space-x-2">
+                    <span>Explore Skills</span>
+                    <ArrowRight className="w-5 h-5" />
+                  </a>
+                </Button>
+                <Button
+                  asChild
+                  className="bg-transparent border-2 border-matrix-green text-matrix-green hover:bg-matrix-green hover:text-black font-bold py-3 px-6 rounded-lg transition-all duration-300 font-mono"
+                >
+                  <a href="#contact" className="flex items-center space-x-2">
+                    <span>Connect</span>
+                  </a>
+                </Button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce-subtle">
-        <ChevronDown className="w-8 h-8 text-blue-300" />
+        <div className="flex flex-col items-center space-y-2">
+          <span className="text-gray-400 font-mono text-sm">scroll down</span>
+          <ChevronDown className="w-6 h-6 text-matrix-green" />
+        </div>
       </div>
     </section>
   );
