@@ -1,6 +1,6 @@
-# Personal Portfolio - Vite + TypeScript + React ⚡️
+# Manjil Dhungana - Full Stack Developer Portfolio ⚡️
 
-A modern, responsive portfolio website built with Vite, TypeScript, React, Tailwind CSS, and shadcn/ui components.
+A modern, responsive portfolio website showcasing my work as a Full Stack Developer. Built with Vite, TypeScript, React, Tailwind CSS, and shadcn/ui components with a premium dark theme and coding aesthetic.
 
 ## 🚀 Features
 
@@ -9,30 +9,32 @@ A modern, responsive portfolio website built with Vite, TypeScript, React, Tailw
 - ⚛️ **React** - Modern component-based architecture
 - 🎨 **Tailwind CSS** - Utility-first CSS framework
 - 🧩 **shadcn/ui** - Beautiful, accessible UI components
-- 📱 **Fully Responsive** - Works on all devices
-- 🎯 **Smooth Scrolling** - Enhanced navigation experience
-- ✨ **Modern Animations** - Subtle transitions and effects
+- 🌙 **Premium Dark Theme** - Modern coding aesthetic with matrix-inspired design
+- 📱 **Fully Responsive** - Works perfectly on all devices
+- ✨ **Custom Animations** - Typewriter effects, matrix rain, neon glows
+- 🎯 **Terminal UI** - Command-line inspired interface elements
 - 🔍 **SEO Optimized** - Meta tags and structured data
 - 📊 **Analytics Ready** - Google Analytics integration
 
 ## 📋 Sections
 
-- **Hero** - Introduction with typing animation
-- **About** - Personal information and skills overview
-- **Experience** - Professional work history
-- **Projects** - Portfolio of completed projects
-- **Skills** - Technical skills and technologies
-- **Education** - Academic background
-- **Contact** - Contact information and social links
+- **Hero** - Introduction with terminal-style typing animation and matrix effects
+- **About** - Personal information, mission, and career goals
+- **Experience** - Professional work history with company logos
+- **Skills** - Technical skills organized by category (Frontend, Backend, Database, etc.)
+- **Education** - Academic background and achievements
+- **Contact** - Contact information with interactive cards and terminal status
 
 ## 🛠️ Tech Stack
 
 - **Frontend**: React 18, TypeScript
-- **Styling**: Tailwind CSS
+- **Styling**: Tailwind CSS with custom dark theme
 - **UI Components**: shadcn/ui
 - **Icons**: Lucide React
 - **Build Tool**: Vite
 - **Package Manager**: npm
+- **Fonts**: JetBrains Mono (coding aesthetic)
+- **Animations**: Custom CSS keyframes and Tailwind utilities
 
 ## 🚀 Getting Started
 
@@ -45,8 +47,8 @@ A modern, responsive portfolio website built with Vite, TypeScript, React, Tailw
 
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd portfolio-vite
+git clone https://github.com/Manjil246/personal-portfolio.git
+cd personal-portfolio
 ```
 
 2. Install dependencies:
@@ -78,46 +80,44 @@ npm run preview
 ## 📁 Project Structure
 
 ```
-portfolio-vite/
-├── public/                 # Static assets
+personal-portfolio/
 ├── src/
 │   ├── assets/            # Images and other assets
-│   │   ├── img/          # Project images
+│   │   ├── img/          # Profile, skill logos, company logos
 │   │   └── resume/       # Resume PDF
 │   ├── components/       # React components
-│   │   ├── ui/          # shadcn/ui components
+│   │   ├── ui/          # shadcn/ui components (Button, Card, Badge)
 │   │   ├── Navigation.tsx
 │   │   ├── HeroSection.tsx
 │   │   ├── AboutSection.tsx
 │   │   ├── ExperienceSection.tsx
-│   │   ├── ProjectsSection.tsx
 │   │   ├── SkillsSection.tsx
 │   │   ├── EducationSection.tsx
 │   │   └── ContactSection.tsx
-│   ├── lib/              # Utility functions
+│   ├── lib/              # Utility functions (cn, utils)
 │   ├── App.tsx           # Main app component
 │   ├── main.tsx          # App entry point
-│   └── index.css         # Global styles
-├── index.html            # HTML template
-├── tailwind.config.js    # Tailwind configuration
+│   └── index.css         # Global styles with dark theme
+├── index.html            # HTML template with favicon
+├── tailwind.config.js    # Tailwind configuration with custom theme
 ├── postcss.config.js     # PostCSS configuration
 └── package.json          # Dependencies and scripts
 ```
 
 ## 🎨 Customization
 
-### Colors
+### Dark Theme Colors
 
-The color scheme can be customized in `tailwind.config.js`:
+The custom dark theme colors are defined in `tailwind.config.js`:
 
 ```javascript
 colors: {
-  teal: {
-    // Custom teal color palette
-  },
-  brown: {
-    // Custom brown color palette
-  }
+  'matrix-green': '#00FF7F',
+  'terminal-bg': '#0D1117',
+  'terminal-border': '#21262D',
+  'code-bg': '#161B22',
+  'dark-bg': '#0D1117',
+  'dark-card': '#161B22'
 }
 ```
 
@@ -126,18 +126,16 @@ colors: {
 Update the content in each component file:
 - Personal information in `AboutSection.tsx`
 - Work experience in `ExperienceSection.tsx`
-- Projects in `ProjectsSection.tsx`
-- Skills in `SkillsSection.tsx`
+- Skills and technologies in `SkillsSection.tsx`
 - Education in `EducationSection.tsx`
 - Contact info in `ContactSection.tsx`
 
 ### Images
 
 Replace images in `src/assets/img/` with your own:
-- Profile picture: `profile.jpg`
-- Company logos: `exp-*.jpg/png`
-- Project screenshots: `project-*.jpg/png`
-- Skill icons: `*-logo-*.jpg/png`
+- Profile picture: `profile.jpg` (also used as favicon)
+- Company logos: `kreeadddalabs_logo.jpg`, `DPN_LOGO_mrvh8l.png`
+- Skill icons: Various technology logos (React, Node.js, TypeScript, etc.)
 
 ## 📊 Analytics
 
@@ -188,6 +186,16 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-Varad Bhogayata - [@varad_bhogayata](https://twitter.com/varad_bhogayata)
+**Manjil Dhungana** - Full Stack Developer
 
-Project Link: [https://github.com/varadbhogayata/portfolio-vite](https://github.com/varadbhogayata/portfolio-vite)
+- 📧 **Email**: manjildhungana8@gmail.com
+- 💼 **LinkedIn**: [linkedin.com/in/manjildhungana](https://www.linkedin.com/in/manjildhungana/)
+- 🐙 **GitHub**: [github.com/Manjil246](https://github.com/Manjil246)
+- 📱 **Phone**: +91 6362428010
+- 📍 **Location**: Pune, Maharashtra, India
+
+**Project Link**: [https://github.com/Manjil246/personal-portfolio](https://github.com/Manjil246/personal-portfolio)
+
+---
+
+⭐ **Star this repository if you found it helpful!**
