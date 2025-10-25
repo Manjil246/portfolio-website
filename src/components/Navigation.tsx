@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "./ui/button";
 import { FileText } from "lucide-react";
-import profileImg from "../assets/img/profile.jpg";
+import cloudinaryAssets from "../assets/cloudinary-assets.json";
 
 const Navigation: React.FC = () => {
   return (
@@ -14,7 +14,7 @@ const Navigation: React.FC = () => {
             <div className="flex items-center space-x-3">
               <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-matrix-green/50 hover:border-matrix-green transition-all duration-300 hover:shadow-neon">
                 <img
-                  src={profileImg}
+                  src={cloudinaryAssets.profile}
                   alt="Manjil Dhungana"
                   className="w-full h-full object-cover hover:scale-110 transition-transform duration-300"
                 />
@@ -37,7 +37,7 @@ const Navigation: React.FC = () => {
               className="flex border-matrix-green text-matrix-green hover:bg-matrix-green hover:text-black font-mono"
             >
               <a
-                href="/src/assets/resume/Manjil Dhungana.pdf"
+                href={cloudinaryAssets.resume}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center space-x-1 sm:space-x-2"

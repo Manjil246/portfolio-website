@@ -9,30 +9,7 @@ import {
   Settings,
   Terminal,
 } from "lucide-react";
-
-// Import all skill logos
-import javaLogo from "../assets/img/java-logo.png";
-import javascriptLogo from "../assets/img/javascript.png";
-import typescriptLogo from "../assets/img/typescript-logo.png";
-import html5Logo from "../assets/img/html5.png";
-import css3Logo from "../assets/img/css3.png";
-import reactLogo from "../assets/img/react-logo.png";
-import nextjsLogo from "../assets/img/nextjs-logo.png";
-import bootstrapLogo from "../assets/img/bootstrap.png";
-import tailwindLogo from "../assets/img/tailwind-logo.png";
-import nodejsLogo from "../assets/img/nodejs.png";
-import expressLogo from "../assets/img/express-logo.png";
-import apiLogo from "../assets/img/api-logo.png";
-import mysqlLogo from "../assets/img/mysql-logo-1.png";
-import mongodbLogo from "../assets/img/mongodb-logo.png";
-import postgresqlLogo from "../assets/img/postgresql-logo.png";
-import reduxLogo from "../assets/img/redux-logo.png";
-import contextApiLogo from "../assets/img/context-api-logo.png";
-import zustandLogo from "../assets/img/zustand-logo.png";
-import gitLogo from "../assets/img/git.png";
-import githubLogo from "../assets/img/github-logo.png";
-import dockerLogo from "../assets/img/docker-logo.png";
-import awsLogo from "../assets/img/aws.png";
+import cloudinaryAssets from "../assets/cloudinary-assets.json";
 
 interface SkillCategory {
   title: string;
@@ -51,9 +28,9 @@ const SkillsSection: React.FC = () => {
     {
       title: "Programming Languages",
       skills: [
-        { name: "Java", image: javaLogo },
-        { name: "JavaScript", image: javascriptLogo },
-        { name: "TypeScript", image: typescriptLogo },
+        { name: "Java", image: cloudinaryAssets["java-logo"] },
+        { name: "JavaScript", image: cloudinaryAssets.javascript },
+        { name: "TypeScript", image: cloudinaryAssets["typescript-logo"] },
       ],
       icon: Code2,
       color: "text-matrix-green",
@@ -61,12 +38,12 @@ const SkillsSection: React.FC = () => {
     {
       title: "Frontend Technologies",
       skills: [
-        { name: "HTML5", image: html5Logo },
-        { name: "CSS3", image: css3Logo },
-        { name: "React", image: reactLogo },
-        { name: "Next.js", image: nextjsLogo },
-        { name: "Bootstrap", image: bootstrapLogo },
-        { name: "Tailwind", image: tailwindLogo },
+        { name: "HTML5", image: cloudinaryAssets.html5 },
+        { name: "CSS3", image: cloudinaryAssets.css3 },
+        { name: "React", image: cloudinaryAssets["react-logo"] },
+        { name: "Next.js", image: cloudinaryAssets["nextjs-logo"] },
+        { name: "Bootstrap", image: cloudinaryAssets.bootstrap },
+        { name: "Tailwind", image: cloudinaryAssets["tailwind-logo"] },
       ],
       icon: Monitor,
       color: "text-blue-400",
@@ -74,9 +51,9 @@ const SkillsSection: React.FC = () => {
     {
       title: "Backend Technologies",
       skills: [
-        { name: "Node.js", image: nodejsLogo },
-        { name: "Express", image: expressLogo },
-        { name: "REST APIs", image: apiLogo },
+        { name: "Node.js", image: cloudinaryAssets.nodejs },
+        { name: "Express", image: cloudinaryAssets["express-logo"] },
+        { name: "REST APIs", image: cloudinaryAssets["api-logo"] },
       ],
       icon: Server,
       color: "text-purple-400",
@@ -84,9 +61,9 @@ const SkillsSection: React.FC = () => {
     {
       title: "Databases",
       skills: [
-        { name: "MySQL", image: mysqlLogo },
-        { name: "MongoDB", image: mongodbLogo },
-        { name: "PostgreSQL", image: postgresqlLogo },
+        { name: "MySQL", image: cloudinaryAssets["mysql-logo-1"] },
+        { name: "MongoDB", image: cloudinaryAssets["mongodb-logo"] },
+        { name: "PostgreSQL", image: cloudinaryAssets["postgresql-logo"] },
       ],
       icon: Database,
       color: "text-orange-400",
@@ -94,9 +71,9 @@ const SkillsSection: React.FC = () => {
     {
       title: "State Management",
       skills: [
-        { name: "Redux", image: reduxLogo },
-        { name: "Context API", image: contextApiLogo },
-        { name: "Zustand", image: zustandLogo },
+        { name: "Redux", image: cloudinaryAssets["redux-logo"] },
+        { name: "Context API", image: cloudinaryAssets["context-api-logo"] },
+        { name: "Zustand", image: cloudinaryAssets["zustand-logo"] },
       ],
       icon: Settings,
       color: "text-pink-400",
@@ -104,10 +81,10 @@ const SkillsSection: React.FC = () => {
     {
       title: "Tools & Technologies",
       skills: [
-        { name: "Git", image: gitLogo },
-        { name: "GitHub", image: githubLogo },
-        { name: "Docker", image: dockerLogo },
-        { name: "AWS", image: awsLogo },
+        { name: "Git", image: cloudinaryAssets.git },
+        { name: "GitHub", image: cloudinaryAssets["github-logo"] },
+        { name: "Docker", image: cloudinaryAssets["docker-logo"] },
+        { name: "AWS", image: cloudinaryAssets.aws },
       ],
       icon: Terminal,
       color: "text-cyan-400",
