@@ -112,14 +112,14 @@ const HeroSection: React.FC = () => {
                 <div className="bg-dark-card border border-terminal-border rounded-lg p-3 sm:p-4 text-center hover:border-matrix-green/50 transition-colors duration-300">
                   <Code2 className="w-6 h-6 text-matrix-green mx-auto mb-2" />
                   <div className="text-white font-mono text-lg font-bold">
-                    50+
+                    40+
                   </div>
                   <div className="text-gray-400 text-sm">Projects</div>
                 </div>
                 <div className="bg-dark-card border border-terminal-border rounded-lg p-3 sm:p-4 text-center hover:border-matrix-green/50 transition-colors duration-300">
                   <Terminal className="w-6 h-6 text-matrix-green mx-auto mb-2" />
                   <div className="text-white font-mono text-lg font-bold">
-                    2+
+                    1+
                   </div>
                   <div className="text-gray-400 text-sm">Years</div>
                 </div>
