@@ -24,5 +24,16 @@
   "tailwind-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1761404727/Portfolio/tailwind-logo.png",
   "typescript-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1761404728/Portfolio/typescript-logo.png",
   "zustand-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1761404732/Portfolio/zustand-logo.png",
-  "resume": "https://drive.google.com/file/d/1aivkrMJKVOVzVnlv-zTIkwO7c3Jl7Yfq/view?usp=drive_link"
+  "resume": "https://drive.google.com/file/d/1JvGmkKLIbrs5cqsdZfRE5rL4zxeRigEH/view?usp=drive_link",
+  "material-ui-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763672349/material_UI_g4dc2a.png",
+  "shadcn-ui-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763672462/shadcn_odt08j.jpg",
+  "jwt-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763672576/jwt_hvfaxp.jpg",
+  "pgvector-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763672673/Screenshot_2025-11-21_023411_tglanq.png",
+  "postgresql-fulltext-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763673446/Screenshot_2025-11-21_024708_qz6220.png",
+  "d3js-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763673495/Screenshot_2025-11-21_024802_vr41rz.png",
+  "kubernetes-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763673568/kubernetes_iikssc.png",
+  "microservices-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763674054/Screenshot_2025-11-21_025716_n1uja0.png",
+  "kafka-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763674011/Screenshot_2025-11-21_025632_mnpuq0.png",
+  "postman-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763674138/Screenshot_2025-11-21_025836_ec7bvn.png",
+  "vtu-logo": "https://res.cloudinary.com/dsatsojpo/image/upload/v1763674192/Screenshot_2025-11-21_025938_gjazzs.png"
 }

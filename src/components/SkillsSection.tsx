@@ -20,7 +20,7 @@ interface SkillCategory {
 
 interface Skill {
   name: string;
-  image: string;
+  image?: string;
 }
 
 const SkillsSection: React.FC = () => {
@@ -44,6 +44,8 @@ const SkillsSection: React.FC = () => {
         { name: "Next.js", image: cloudinaryAssets["nextjs-logo"] },
         { name: "Bootstrap", image: cloudinaryAssets.bootstrap },
         { name: "Tailwind", image: cloudinaryAssets["tailwind-logo"] },
+        { name: "Material UI", image: cloudinaryAssets["material-ui-logo"] },
+        { name: "Shadcn UI", image: cloudinaryAssets["shadcn-ui-logo"] },
       ],
       icon: Monitor,
       color: "text-blue-400",
@@ -54,6 +56,7 @@ const SkillsSection: React.FC = () => {
         { name: "Node.js", image: cloudinaryAssets.nodejs },
         { name: "Express", image: cloudinaryAssets["express-logo"] },
         { name: "REST APIs", image: cloudinaryAssets["api-logo"] },
+        { name: "JWT", image: cloudinaryAssets["jwt-logo"] },
       ],
       icon: Server,
       color: "text-purple-400",
@@ -69,6 +72,19 @@ const SkillsSection: React.FC = () => {
       color: "text-orange-400",
     },
     {
+      title: "Search & Data Processing",
+      skills: [
+        { name: "pgvector", image: cloudinaryAssets["pgvector-logo"] },
+        {
+          name: "PostgreSQL Full-Text Search",
+          image: cloudinaryAssets["postgresql-fulltext-logo"],
+        },
+        { name: "D3.js", image: cloudinaryAssets["d3js-logo"] },
+      ],
+      icon: Database,
+      color: "text-yellow-400",
+    },
+    {
       title: "State Management",
       skills: [
         { name: "Redux", image: cloudinaryAssets["redux-logo"] },
@@ -79,12 +95,26 @@ const SkillsSection: React.FC = () => {
       color: "text-pink-400",
     },
     {
+      title: "Architecture & Infra",
+      skills: [
+        { name: "AWS", image: cloudinaryAssets.aws },
+        { name: "Docker", image: cloudinaryAssets["docker-logo"] },
+        { name: "Kubernetes", image: cloudinaryAssets["kubernetes-logo"] },
+        {
+          name: "Microservices",
+          image: cloudinaryAssets["microservices-logo"],
+        },
+      ],
+      icon: Settings,
+      color: "text-indigo-400",
+    },
+    {
       title: "Tools & Technologies",
       skills: [
         { name: "Git", image: cloudinaryAssets.git },
         { name: "GitHub", image: cloudinaryAssets["github-logo"] },
-        { name: "Docker", image: cloudinaryAssets["docker-logo"] },
-        { name: "AWS", image: cloudinaryAssets.aws },
+        { name: "Kafka", image: cloudinaryAssets["kafka-logo"] },
+        { name: "Postman", image: cloudinaryAssets["postman-logo"] },
       ],
       icon: Terminal,
       color: "text-cyan-400",
@@ -142,21 +172,31 @@ const SkillsSection: React.FC = () => {
                   </CardHeader>
                   <CardContent>
                     <div className="grid grid-cols-2 gap-3">
-                      {category.skills.map((skill, skillIndex) => (
-                        <div
-                          key={skillIndex}
-                          className="flex items-center space-x-3 p-3 bg-terminal rounded-lg hover:bg-terminal-border transition-colors duration-200 group"
-                        >
-                          <img
-                            src={skill.image}
-                            alt={skill.name}
-                            className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-200"
-                          />
-                          <span className="text-gray-300 text-sm font-mono">
-                            {skill.name}
-                          </span>
-                        </div>
-                      ))}
+                      {category.skills.map((skill, skillIndex) => {
+                        const isPlaceholder =
+                          skill.image?.startsWith("PLACEHOLDER_");
+                        return (
+                          <div
+                            key={skillIndex}
+                            className="flex items-center space-x-3 p-3 bg-terminal rounded-lg hover:bg-terminal-border transition-colors duration-200 group"
+                          >
+                            {skill.image && !isPlaceholder ? (
+                              <img
+                                src={skill.image}
+                                alt={skill.name}
+                                className="w-6 h-6 object-contain group-hover:scale-110 transition-transform duration-200"
+                              />
+                            ) : (
+                              <div className="w-6 h-6 flex items-center justify-center">
+                                <div className="w-2 h-2 bg-matrix-green rounded-full"></div>
+                              </div>
+                            )}
+                            <span className="text-gray-300 text-sm font-mono">
+                              {skill.name}
+                            </span>
+                          </div>
+                        );
+                      })}
                     </div>
                   </CardContent>
                 </Card>

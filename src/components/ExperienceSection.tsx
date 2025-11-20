@@ -39,8 +39,11 @@ const ExperienceSection: React.FC = () => {
         "Implemented scalable architecture with AWS Lambda, SQS, and event-driven processing, reducing data processing time by 75%.",
         "Built dynamic trend visualization using D3.js color graphs and complex data transformations, improving decision-making efficiency by 60%.",
         "Enhanced system performance by 50% through intelligent caching, query optimization, and resolved critical performance bottlenecks.",
+        "Architected hybrid search combining vector similarity (pgvector), full-text search (tsvector), and RGB vector analysis, enabling multimodal semantic search across 1M+ fashion posts with 90%+ accuracy.",
+        "Developed LLM-powered content generation pipeline with Azure OpenAI GPT-4o and Server-Sent Events streaming, delivering real-time responses with customizable tone and style for fashion trend analysis.",
       ],
-      tools: "TypeScript, React, Node.js, PostgreSQL, AWS Lambda, SQS, D3.js",
+      tools:
+        "TypeScript, React, Node.js, PostgreSQL, AWS Lambda, SQS, D3.js, pgvector, Azure OpenAI, Server-Sent Events",
     },
     {
       company: "Skylink IT Services",

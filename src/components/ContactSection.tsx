@@ -61,7 +61,7 @@ const ContactSection: React.FC = () => {
               </h3>
               <a
                 href="mailto:manjildhungana8@gmail.com"
-                className="text-gray-300 hover:text-matrix-green transition-colors duration-200 break-all font-mono"
+                className="text-gray-300 hover:text-matrix-green transition-colors duration-200 break-all font-mono text-sm"
               >
                 manjildhungana8@gmail.com
               </a>
@@ -81,7 +81,7 @@ const ContactSection: React.FC = () => {
                 href="https://github.com/Manjil246"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-gray-100 transition-colors duration-200 font-mono"
+                className="text-gray-300 hover:text-gray-100 transition-colors duration-200 font-mono text-sm"
               >
                 github.com/Manjil246
               </a>
@@ -101,7 +101,7 @@ const ContactSection: React.FC = () => {
                 href="https://www.linkedin.com/in/manjildhungana/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-300 hover:text-blue-600 transition-colors duration-200 font-mono"
+                className="text-gray-300 hover:text-blue-600 transition-colors duration-200 font-mono text-sm"
               >
                 linkedin.com/in/manjildhungana
               </a>

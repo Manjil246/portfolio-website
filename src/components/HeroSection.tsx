@@ -17,7 +17,7 @@ const HeroSection: React.FC = () => {
 
   useEffect(() => {
     let timeout: number;
-    
+
     if (isTyping && currentText.length < fullText.length) {
       timeout = setTimeout(() => {
         setCurrentText(fullText.slice(0, currentText.length + 1));
@@ -183,6 +183,7 @@ const HeroSection: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-dark-card border border-terminal-border rounded-lg hover:border-matrix-green/50 hover:shadow-neon transition-all duration-300 group"
+                  title="LinkedIn"
                 >
                   <Linkedin className="w-6 h-6 text-gray-400 group-hover:text-matrix-green transition-colors duration-300" />
                 </a>
@@ -191,6 +192,7 @@ const HeroSection: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-3 bg-dark-card border border-terminal-border rounded-lg hover:border-matrix-green/50 hover:shadow-neon transition-all duration-300 group"
+                  title="GitHub"
                 >
                   <Github className="w-6 h-6 text-gray-400 group-hover:text-matrix-green transition-colors duration-300" />
                 </a>

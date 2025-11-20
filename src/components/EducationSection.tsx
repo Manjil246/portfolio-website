@@ -9,12 +9,14 @@ import {
   BookOpen,
   Award,
   Terminal,
+  Calendar,
 } from "lucide-react";
 
 interface Education {
   institution: string;
   location: string;
   degree: string;
+  duration: string;
   cgpa: string;
   website?: string;
   courseworks: string[];
@@ -26,6 +28,7 @@ const EducationSection: React.FC = () => {
       institution: "Visvesvaraya Technological University",
       location: "India",
       degree: "B.E Computer Science",
+      duration: "2020 – 2024",
       cgpa: "9.3 CGPA",
       website: "https://vtu.ac.in/",
       courseworks: [
@@ -117,6 +120,10 @@ const EducationSection: React.FC = () => {
 
                       <div className="flex flex-col sm:flex-row sm:items-center gap-4 text-gray-400 mb-4">
                         <div className="flex items-center space-x-2">
+                          <Calendar className="w-4 h-4" />
+                          <span className="font-mono">{edu.duration}</span>
+                        </div>
+                        <div className="flex items-center space-x-2">
                           <MapPin className="w-4 h-4" />
                           <span className="font-mono">{edu.location}</span>
                         </div>
@@ -167,6 +174,39 @@ const EducationSection: React.FC = () => {
               </CardContent>
             </Card>
           ))}
+
+          {/* Achievements Section */}
+          <Card className="mt-12 shadow-neon-lg border-terminal-border bg-dark-card">
+            <CardContent className="p-8">
+              <h3 className="text-2xl font-bold text-white mb-6 flex items-center space-x-2 font-mono">
+                <Award className="w-6 h-6 text-matrix-green" />
+                <span>Achievements</span>
+              </h3>
+              <div className="space-y-4">
+                <div className="flex items-start space-x-3 p-4 bg-terminal rounded-lg hover:bg-terminal-border transition-colors duration-200">
+                  <div className="w-2 h-2 bg-matrix-green rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-300 leading-relaxed font-mono">
+                    Department and College Topper (2023): Consistently ranked
+                    top performer (5th and 6th semester)
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3 p-4 bg-terminal rounded-lg hover:bg-terminal-border transition-colors duration-200">
+                  <div className="w-2 h-2 bg-matrix-green rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-300 leading-relaxed font-mono">
+                    Active participant in coding competitions including Code
+                    Fiesta @ SJB Institute of Technology
+                  </p>
+                </div>
+                <div className="flex items-start space-x-3 p-4 bg-terminal rounded-lg hover:bg-terminal-border transition-colors duration-200">
+                  <div className="w-2 h-2 bg-matrix-green rounded-full mt-2 flex-shrink-0"></div>
+                  <p className="text-gray-300 leading-relaxed font-mono">
+                    Successfully transitioned from intern to full-time developer
+                    role within 3 months based on performance
+                  </p>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
 
           {/* Academic Achievement Summary */}
           <Card className="mt-12 shadow-neon-lg border-terminal-border bg-gradient-to-r from-matrix-green/20 to-blue-400/20">
